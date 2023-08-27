@@ -7,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 /*
  Añadimos el DbContext en base a la clase que va a tener la configuración, ademas debemos especificar que va a usar Sql Server
+
+Una vez hecho eso debemos pasar la cadena de conexión configurada en el appsettings
  */
 builder.Services.AddDbContext<ApplicationDbContext>(options=> 
         options.UseSqlServer(builder.Configuration.GetConnectionString("DataBaseConnection")));

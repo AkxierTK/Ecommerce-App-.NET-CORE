@@ -28,5 +28,19 @@ namespace BulkyWeb.Data
          */
         public DbSet<Category> Categories { get; set; }
 
+        /*
+         Podemos sobrescribir el metodo OnModelCreating para cambiar los modelos, sus relaciones y añadir datos, para esto tambien se debe añadir una migración.
+
+         En este ejemplo añadimos valores a la tabla categorias
+         */
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Category>().HasData(
+                new Category { CategoryId = 1, Name = "Caja", DisplayOrder = 1 },
+                new Category { CategoryId = 2, Name = "Carta", DisplayOrder = 2 },
+                new Category { CategoryId = 3, Name = "Mazo", DisplayOrder = 3 }
+                );
+        }
+
     }
 }

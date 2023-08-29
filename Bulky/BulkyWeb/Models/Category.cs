@@ -9,7 +9,7 @@ namespace BulkyWeb.Models
           Más info en  https://learn.microsoft.com/en-us/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6     
          */
         [Key]
-        public int Id { get; set; }
+        public int CategoryId { get; set; }
         [Required]
         public string Name { get; set; }
         public int DisplayOrder { get; set; }

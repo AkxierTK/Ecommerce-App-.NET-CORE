@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BulkyWeb.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BulkyWeb.Data
 {
@@ -13,6 +14,19 @@ namespace BulkyWeb.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
             
+
         }
+
+        /* Aqui debemos poner los modelos que queremos generar en la base de datos del contexto
+
+          Primero debemos generar la migración en la consola de comandos de paquetes Nuget con el siguiente comando -- > add-migration nombreMigracion
+
+          Una vez hecho esto se nos creará la carpeta Migrations con la migración.
+
+          Por último debemos hacer que esa migración se aplique a la bd con el siguiente comando aplicando las migraciones -> update-database
+
+         */
+        public DbSet<Category> Categories { get; set; }
+
     }
 }

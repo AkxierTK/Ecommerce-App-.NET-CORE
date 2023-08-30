@@ -41,10 +41,16 @@ namespace BulkyWeb.Controllers
         [HttpPost]
         public IActionResult Create(Category obj)
         {
+            //ModelState
+            if (ModelState.IsValid)
+            {
             _db.Categories.Add(obj);
             _db.SaveChanges();
             //Para redirigir a otro método podemos hacerlo desde redirectTo añadir 2 parámetro si es de otro controlador
             return RedirectToAction("Index");
+            }
+
+            return View(obj);
         }
 
     }

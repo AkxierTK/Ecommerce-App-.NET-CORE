@@ -41,6 +41,12 @@ namespace BulkyWeb.Controllers
         [HttpPost]
         public IActionResult Create(Category obj)
         {
+            //Se pueden añadir validaciones extra más allá de rangos y tipos
+            if (obj.Name == obj.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("Name", "Name and Display Order cannot be the same");
+            }
+
             //ModelState
             if (ModelState.IsValid)
             {

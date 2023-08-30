@@ -7,6 +7,8 @@
             <h2 class="text-primary">Create Category</h2>
             <hr />
         </div>
+        @*Muestra un listado de los errores dados*@
+        <div asp-validation-summary="All"></div>
         <div class="mb-3 row"> 
             <label asp-for="Name" class=" mb-1"></label>
             <input asp-for="Name" type="text" class="form-control bg-white text-black" />

@@ -7,8 +7,12 @@
             <h2 class="text-primary">Create Category</h2>
             <hr />
         </div>
-        @*Muestra un listado de los errores dados*@
+        @*Muestra un listado de los errores dados
         <div asp-validation-summary="All"></div>
+        Muestra un listado de los errores que no son de las propiedades
+        <div asp-validation-summary="ModelOnly"></div>
+        <div asp-validation-summary="None"></div> -> no muestra nada
+        *@
         <div class="mb-3 row"> 
             <label asp-for="Name" class=" mb-1"></label>
             <input asp-for="Name" type="text" class="form-control bg-white text-black" />

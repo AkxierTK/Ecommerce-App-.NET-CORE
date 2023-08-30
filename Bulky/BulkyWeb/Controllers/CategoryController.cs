@@ -37,5 +37,15 @@ namespace BulkyWeb.Controllers
             return View();
         }
 
+        //En este caso el Post se llama desde la misma pantalla sin declarar controlador por lo que acude buscando el mismo metodo pero con Post
+        [HttpPost]
+        public IActionResult Create(Category obj)
+        {
+            _db.Categories.Add(obj);
+            _db.SaveChanges();
+            //Para redirigir a otro método podemos hacerlo desde redirectTo añadir 2 parámetro si es de otro controlador
+            return RedirectToAction("Index");
+        }
+
     }
 }
